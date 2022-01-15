@@ -70,9 +70,11 @@ img#tribal_head {
     height: 70vh;
     opacity: 0.3;
     color: #7f7f7f;
-    left: -30%;
+    left: -40%;
     vertical-align: center;
     margin: auto 0;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 @media screen and (min-width: 600px) {
