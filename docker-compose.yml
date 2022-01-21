@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  turbulance-website:
+      image: "nginx"
+      container_name: "turbulance-website"
+      volumes:
+        - "./static:/usr/share/nginx/html"
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.turbulance-website.rule=Host(`turbulance.ch`)"
+        - "traefik.http.routers.turbulance-website.entrypoints=websecure"
+        - "traefik.http.routers.turbulance-website.tls.certresolver=myresolver"
+      networks:
+        - traefik
+
+networks:
+    # Allow the use of traefik in other docker-compose.yml files
+    traefik:
+        external: true
